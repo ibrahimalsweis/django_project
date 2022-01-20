@@ -1,3 +1,19 @@
-body{
-    background-color: red;
+
+
+html ,body{
+    direction: rtl;
+    text-align: right;
+}
+
+
+*{
+    list-style: none!important;
+}
+
+a{
+    text-decoration: none!important;
+}
+
+a:hover{
+    text-decoration: underline;
 }

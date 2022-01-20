@@ -1,3 +1,12 @@
-body{
-    background-color: red;
+
+
+html ,body{
+    direction: rtl;
+    text-align: right;
 }
+
+
+*{
+    list-style: none!important;
+}
+
