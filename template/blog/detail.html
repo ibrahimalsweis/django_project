@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block content %}
+
+
+
+
+<div class="border p-3 mb-3">
+  <div class="d-flex align-items-center">
+    <img
+      class="img-fluid rounded-circle border"
+      style="width: 70px; height: 70px"
+      src="https://yt3.ggpht.com/ytc/AKedOLTHKPaCC8X70K4JHAeg_05JFL98z_wbnAPzWrgKIg=s88-c-k-c0x00ffffff-no-rj"
+      alt="صورة الناشر"
+    />
+    <div>
+      <h3 class="mx-2">{{post.title}}</h3>
+      <span class="text-secondary">نشر في{{ post.post_date|date:' o/n/j ' }}</span>
+    </div>
+  </div>
+  <div class="post-content my-3">
+    <p>{{post.content}}</p>
+  </div>
+</div>
+<div class='box-comments border p-2 rounded-3'>
+  <div class='d-flex align-items-center'> 
+      <h3 class="mx-2  mb-3 p-2"> التعليقات ({{comments.count}})</h3>
+  </div>
+      
+      {% for comment in comments  %}
+      <div class='comments border rounded p-2 m-1 '>
+        
+        <h6 class="mx-2 border-bottom py-2">{{ comment.name}}  <span class="text-secondary">نشر في {{ comment.comment_date|date:' o/n/j ' }}</span></h6>
+          <p class='m-0'>
+            {{comment.content_comment}}
+          </p>
+      </div>
+
+      {% empty %}
+            <div class='comments border rounded p-2 m-1 text-center'>لا يوجد تعليقات </div>
+      {% endfor %}
+</div>
+{% endblock content %}

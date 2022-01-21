@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User 
 from datetime import datetime
+
+
 class Post (models.Model):
     title  = models.CharField( max_length=100)
     content = models.TextField()
@@ -15,3 +17,13 @@ class Post (models.Model):
 
     class Meta:
         ordering = ("-post_date", )
+
+class Comment(models.Model):
+    name = models.CharField(max_length=50)
+    content_comment = models.TextField(max_length=500)
+    comment_date = models.DateTimeField(default=datetime.now)
+    post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')
+
+
+    def __str__(self):
+        return str(f'علق {self.name} على {self.post}')

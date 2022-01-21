@@ -9,4 +9,8 @@ html ,body{
 *{
     list-style: none!important;
 }
-
+.box-comments{
+    border: 1px solid #dee2e6!important;
+    padding: 10px;
+    border-radius: 6px;
+}
