@@ -29,7 +29,7 @@
       <div class='comments border rounded p-2 m-1 '>
         
         <h6 class="mx-2 border-bottom py-2">{{ comment.name}}  <span class="text-secondary">نشر في {{ comment.comment_date|date:' o/n/j ' }}</span></h6>
-          <p class='m-0'>
+          <p class='m-0 ' style='overflow-wrap: break-word;'>
             {{comment.content_comment}}
           </p>
       </div>
@@ -38,4 +38,11 @@
             <div class='comments border rounded p-2 m-1 text-center'>لا يوجد تعليقات </div>
       {% endfor %}
 </div>
+
+<form method="POST" class='py-3'>
+  {% csrf_token %}
+  {{form_comment}}
+<button type="submit" class="btn btn-secondary w-100">نشر التعليق</button>
+</form>
+
 {% endblock content %}

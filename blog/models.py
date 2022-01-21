@@ -19,8 +19,8 @@ class Post (models.Model):
         ordering = ("-post_date", )
 
 class Comment(models.Model):
-    name = models.CharField(max_length=50)
-    content_comment = models.TextField(max_length=500)
+    name = models.CharField(max_length=50,)
+    content_comment = models.TextField(max_length=500 ,verbose_name="اكتب تعليق")
     comment_date = models.DateTimeField(default=datetime.now)
     post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')
 

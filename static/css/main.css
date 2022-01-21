@@ -9,11 +9,12 @@ html ,body{
 *{
     list-style: none!important;
 }
-
-a{
-    text-decoration: none!important;
+.box-comments{
+    border: 1px solid #dee2e6!important;
+    padding: 10px;
+    border-radius: 6px;
 }
 
-a:hover{
-    text-decoration: underline;
+#input-submit{
+    background-color: #1d83e9!important;
 }

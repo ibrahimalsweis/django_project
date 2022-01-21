@@ -14,3 +14,7 @@ html ,body{
     padding: 10px;
     border-radius: 6px;
 }
+
+#input-submit{
+    background-color: #1d83e9!important;
+}
