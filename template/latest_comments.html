@@ -1,0 +1,12 @@
+
+<ul class="list-group p-0">
+    
+    {% for comment in comments  %}
+
+    <li class="list-group-item"><a href="#" class='text-dark'>{{comment.content_comment}}</a></li>
+    {% empty %}
+    <li class="list-group-item text-dark ">لا يوجد تعليقات</li>
+    {% endfor %}
+
+</ul>
+

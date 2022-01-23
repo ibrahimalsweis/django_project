@@ -1,8 +1,7 @@
 <ul class="list-group p-0">
     {% for post in posts  %}
-        {% if post.id <= 6 %}
         <li class="list-group-item"><a href="{% url 'detail' post.id %}" class='text-dark'>{{post.title}}</a></li>
-        {% endif %}
     {% endfor %}
 
 </ul>
+

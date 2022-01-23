@@ -42,7 +42,7 @@
 <form method="POST" class='py-3'>
   {% csrf_token %}
   {{form_comment}}
-<button type="submit" class="btn btn-secondary w-100">نشر التعليق</button>
+<button type="submit" id="submit" class="btn btn-secondary w-100">نشر التعليق</button>
 </form>
 
 {% endblock content %}

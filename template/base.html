@@ -71,17 +71,11 @@
         <div class="col-md-4">
           <div class="card my-3">
             <h5 class="p-2 bg-secondary text-light mb-0">أحدث المنشورات</h5>
-            {% include './latest_posts.html' %}
+            {% include 'latest_posts.html' %}
           </div>
           <div class="card my-3">
             <h5 class="p-2 bg-secondary text-light">أحدث التعليقات</h5>
-            <ul>
-              <li><a href="#">التعليق الاول </a></li>
-              <li><a href="#">التعليق الثاني </a></li>
-              <li><a href="#">التعليق الثالث </a></li>
-              <li><a href="#">التعليق الرابع </a></li>
-              <li><a href="#">التعليق الخامس </a></li>
-            </ul>
+            {% include './latest_comments.html' %}
           </div>
         </div>
       </div>
