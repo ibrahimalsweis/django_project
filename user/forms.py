@@ -1,39 +1,60 @@
-from django import forms 
+
+
+from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
-          
-class UserregisterForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-        for fieldname in ['username']:
-            self.fields[fieldname].help_text = None
-    password1 = forms.CharField(label='كلمة المرور',max_length=100,widget=forms.PasswordInput(attrs={'class':"form-control my-2"}),min_length=8)
-    password2 = forms.CharField(label='تأكيد كلمة المرور',max_length=100,widget=forms.PasswordInput(attrs={'class':"form-control my-2"}),min_length=8)
+class createUser(UserCreationForm):
+    password1 = forms.CharField(label='كلملة المرور',widget=forms.PasswordInput(attrs={'class':'form-control my-2'}),min_length=8)
+    password2 = forms.CharField(label='ـأكيد كلمة المرور ',widget=forms.PasswordInput(attrs={'class':'form-control my-2'}),min_length=8)
+ 
     class Meta:
         model = User
-        fields = [
+        fields = (
             'username',
             'email',
             'first_name',
             'last_name',
-            # 'password'
-        ]
-        widgets ={
-          'username':forms.TextInput(attrs={'class':"form-control my-2"}),
-          'email':forms.TextInput(attrs={'class':"form-control my-2"}),
-          'first_name':forms.TextInput(attrs={'class':"form-control my-2"}),
-          'last_name':forms.TextInput(attrs={'class':"form-control my-2"}),
+    
+
+        )
+        widgets = {
+
+            'username':forms.TextInput(attrs={'class':"form-control my-2"}),
+            'email':forms.EmailInput(attrs={'class':'form-control my-2'}),
+            'first_name':forms.TextInput(attrs={'class':'form-control my-2'}),
+            'last_name':forms.TextInput(attrs={'class':'form-control my-2'}),
+            'password1' :forms.PasswordInput(attrs={'class':'form-control my-2'}),
+            'password2' :forms.PasswordInput(attrs={'class':'form-control my-2'}),
         }
-    def check_password(self):
-        dpass = self.cleaned_data
-        if dpass['password1'] != dpass['password2']:
+
+    def clean_password2(self):
+        data = self.cleaned_data
+        if data['password1'] != data['password2']:
             raise forms.ValidationError('كلمة المرور غير متطابقة')
-        return dpass['password2']
+        return data['password2']
 
 
-    def clean_username(self):
-        cd = self.cleaned_data
-        if User.objects.filter(username=cd['username']).exists():
-            raise forms.ValidationError('يوجد مستخدم مسجل بهذا الاسم.')
-        return cd['username']
+
+
+    def clean_usernam(self):
+        data = self.cleaned_data            
+        if User.objects.filter(username = data['username']).exists():
+            raise forms.ValidationError('أسم المستحدم موجود بالفعل')    
+        return  data['username']    
+
+    def clean_email(self):
+        data = self.cleaned_data            
+        if User.objects.filter(email = data['email']).exists():
+            raise forms.ValidationError(' هاذا البريد الاكترني مستخدم بالفعل')
+        return  data['email']    
+
+
+    # def clean_email(self):
+    #     data = self.cleaned_data['email']            
+    #     if User.objects.filter(email = data).exists():
+    #         raise forms.ValidationError(' هاذا البريد الاكترني مستخدم بالفعل')
+
+
+
+

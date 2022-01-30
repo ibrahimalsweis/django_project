@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+<style>
+  .register input{
+    width: 100%!important;
+}
+#register{
+    background-color: rebeccapurple;
+}
+</style>
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+
+
+
+<div class="border p-3 mb-5 mt-3 register" id="register w-75">
+   <h2 class="p-2 my-3">تم تسجيل الخروج</h2>
+     
+
+  <small >يمكنك تسجيل الدحول  <a href="{% url 'login' %}"> من هنا</a></small>
+ </div>
+
+
+
+
+
+
+
+
+
+{% endblock content %}

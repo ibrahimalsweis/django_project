@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+<style>
+  .register input{
+    width: 100%!important;
+}
+#register{
+    background-color: rebeccapurple;
+}
+</style>
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+
+
+
+<div class="border p-3 mb-5 mt-3 register" id="register w-75">
+   <h2 class="p-2 my-3">أنشاء حساب جديد</h2>
+     
+  <form method="POST" class="px-2">
+     {{form|crispy}}
+    {% csrf_token %} 
+    
+ 
+      <input type="submit" id="submit" class="btn btn-secondary my-3  " value=" أنشاء حساب جديد">
+  </form>
+  <small >اذا كان لديك حساب من قبل يمكنك <a href="#">تسجيل الدحول من هنا</a></small>
+ </div>
+
+
+
+
+
+
+
+
+
+{% endblock content %}

@@ -19,6 +19,6 @@ html ,body{
     background-color: #1d83e9!important;
 }
 
-.helptext,br{
-    display: none;
+.help-block{
+    color: red!important;
 }
