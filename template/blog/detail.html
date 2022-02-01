@@ -51,7 +51,8 @@
       {% for comment in comments  %}
       <div class='comments border rounded p-2 m-1 '>
         
-        <h6 class="mx-2 border-bottom py-2">{{ comment.name}}  <span class="text-secondary">نشر في {{ comment.comment_date|date:' o/n/j ' }}</span></h6>
+        <h6 class="mx-2 border-bottom py-2">{{ comment.name}}  <span class="text-secondary">نشر في 
+          {{ comment.comment_date|date:' o/n/j ' }}</span></h6>
           <p class='m-0 ' style='overflow-wrap: break-word;'>
             {{comment.content_comment}}
           </p>

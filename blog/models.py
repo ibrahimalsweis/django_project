@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User 
 from datetime import datetime
@@ -8,7 +9,7 @@ class Post (models.Model):
     content = models.TextField()
     post_date = models.DateTimeField(default=datetime.now)
     post_update = models.DateTimeField(auto_now=True)
-    author = models.ForeignKey(User,on_delete=models.CASCADE)
+    author = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 
 
     def __str__(self):

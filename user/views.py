@@ -1,10 +1,9 @@
 
-from pyexpat import model
 from django.shortcuts import render,redirect
 
 from django.contrib import messages
 from .forms import createUser
-
+from blog.models import Post
 def register(request):
     if request.method == 'POST':
        form = createUser(request.POST)
@@ -17,6 +16,13 @@ def register(request):
     else:
        form = createUser()
     return render(request ,'user/register.html',{
-        'title':'أنشاء حساب جديد',
+        'title_page':'أنشاء حساب جديد',
         'form':form,
+    })
+
+def profile(request):
+    posts_user = Post.objects.filter(author=request.user)
+    return render(request,'user/profile.html',{
+        'title_page':'الملف الشحصي',
+        'posts':posts_user,
     })

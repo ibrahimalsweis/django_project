@@ -133,4 +133,7 @@ CRISPY_TEMPLATE_PACE = 'bootstrap4'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'profile'
+
+MEDIA_ROOT = os.path.join(BASE_DIR,"meida")
+MEDIA_URL = "/media/"

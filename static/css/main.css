@@ -1,24 +1,29 @@
-
-
-html ,body{
-    direction: rtl;
-    text-align: right;
+html,
+body {
+  direction: rtl;
+  text-align: right;
 }
 
-
-*{
-    list-style: none!important;
-}
-.box-comments{
-    border: 1px solid #dee2e6!important;
-    padding: 10px;
-    border-radius: 6px;
+* {
+  list-style: none !important;
 }
 
-#input-submit{
-    background-color: #1d83e9!important;
+.post {
+  word-break: break-word;
+}
+.box-comments {
+  border: 1px solid #dee2e6 !important;
+  padding: 10px;
+  border-radius: 6px;
 }
 
-.help-block{
-    color: red!important;
+#input-submit {
+  background-color: #1d83e9 !important;
+}
+
+.help-block {
+  color: red !important;
+}
+.img-profile {
+  border-radius: 50%;
 }
